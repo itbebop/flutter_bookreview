@@ -1,5 +1,3 @@
-import 'package:bookreview/src/temp/detail.dart';
-import 'package:bookreview/src/temp/home.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,16 +17,7 @@ class _AppState extends State<App> {
     super.initState();
 
     // route
-    router = GoRouter(routes: [
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const Home(),
-      ),
-      GoRoute(
-        path: '/detail',
-        builder: (context, state) => const Detail(),
-      )
-    ]);
+    router = GoRouter(routes: []);
   }
 
   @override

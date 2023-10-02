@@ -1,7 +1,6 @@
 import 'package:bookreview/firebase_options.dart';
 import 'package:bookreview/src/app.dart';
 import 'package:bookreview/src/common/interceptor/custom_interceptor.dart';
-import 'package:bookreview/src/common/model/naver_book_search_option.dart';
 import 'package:bookreview/src/common/repository/naver_api_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -33,23 +32,7 @@ class MyApp extends StatelessWidget {
           create: (context) => NaverBookRepository(dio),
         )
       ],
-      child: Builder(
-        builder: (context) => FutureBuilder(
-          future: context.read<NaverBookRepository>().searchBooks(
-                const NaverBookSearchOption.init(query: '플러터'),
-              ),
-          builder: (context, snapshot) {
-            // 데이터 갯수 확인
-            if (snapshot.hasData) {
-              return MaterialApp(
-                  home: Center(
-                child: Text('${snapshot.data?.items?.length ?? 0}'),
-              ));
-            }
-            return Container();
-          },
-        ),
-      ),
+      child: const App(),
     );
   }
 }

@@ -194,6 +194,10 @@ graphs
 2.18
 file:///Users/admin/.pub-cache/hosted/pub.dev/graphs-2.3.1/
 file:///Users/admin/.pub-cache/hosted/pub.dev/graphs-2.3.1/lib/
+hive
+2.12
+file:///Users/admin/.pub-cache/hosted/pub.dev/hive-2.2.3/
+file:///Users/admin/.pub-cache/hosted/pub.dev/hive-2.2.3/lib/
 http
 3.0
 file:///Users/admin/.pub-cache/hosted/pub.dev/http-1.1.0/
@@ -206,6 +210,10 @@ http_parser
 2.12
 file:///Users/admin/.pub-cache/hosted/pub.dev/http_parser-4.0.2/
 file:///Users/admin/.pub-cache/hosted/pub.dev/http_parser-4.0.2/lib/
+hydrated_bloc
+2.12
+file:///Users/admin/.pub-cache/hosted/pub.dev/hydrated_bloc-9.1.2/
+file:///Users/admin/.pub-cache/hosted/pub.dev/hydrated_bloc-9.1.2/lib/
 io
 2.12
 file:///Users/admin/.pub-cache/hosted/pub.dev/io-1.0.4/
@@ -342,6 +350,10 @@ string_scanner
 2.18
 file:///Users/admin/.pub-cache/hosted/pub.dev/string_scanner-1.2.0/
 file:///Users/admin/.pub-cache/hosted/pub.dev/string_scanner-1.2.0/lib/
+synchronized
+2.18
+file:///Users/admin/.pub-cache/hosted/pub.dev/synchronized-3.1.0/
+file:///Users/admin/.pub-cache/hosted/pub.dev/synchronized-3.1.0/lib/
 term_glyph
 2.12
 file:///Users/admin/.pub-cache/hosted/pub.dev/term_glyph-1.2.1/

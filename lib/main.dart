@@ -1,7 +1,9 @@
 import 'package:bookreview/firebase_options.dart';
 import 'package:bookreview/src/app.dart';
+import 'package:bookreview/src/common/cubit/app_data_load_cubit.dart';
 import 'package:bookreview/src/common/interceptor/custom_interceptor.dart';
 import 'package:bookreview/src/common/repository/naver_api_repository.dart';
+import 'package:bookreview/src/splash/cubit/splash_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,17 @@ class MyApp extends StatelessWidget {
           create: (context) => NaverBookRepository(dio),
         )
       ],
-      child: const App(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => AppDataLoadCubit(),
+            lazy: false, // 등록되는 순간 바로 instance 생성하면서 프로세스(loading-> loaded)진행됨
+          ),
+          // SplashCubit은 App쪽에 등록해도 되는데 이앱에서는 main에 해줌
+          BlocProvider(create: (context) => SplashCubit()),
+        ],
+        child: const App(),
+      ),
     );
   }
 }

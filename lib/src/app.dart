@@ -1,4 +1,5 @@
 import 'package:bookreview/src/init/page/init_page.dart';
+import 'package:bookreview/src/login/page/login_page.dart';
 import 'package:bookreview/src/root/page/root_page.dart';
 import 'package:bookreview/src/splash/page/splash_page.dart';
 import 'package:flutter/material.dart';
@@ -21,11 +22,15 @@ class _AppState extends State<App> {
 
     // route
     router = GoRouter(
-      initialLocation: '/',
+      initialLocation: '/login',
       routes: [
         GoRoute(
           path: '/',
           builder: (context, state) => const RootPage(),
+        ),
+        GoRoute(
+          path: '/login',
+          builder: (context, state) => const LoginPage(),
         ),
       ],
     );

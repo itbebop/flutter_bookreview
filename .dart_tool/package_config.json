@@ -566,6 +566,24 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "sign_in_with_apple",
+      "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/sign_in_with_apple-5.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "sign_in_with_apple_platform_interface",
+      "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/sign_in_with_apple_platform_interface-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "sign_in_with_apple_web",
+      "rootUri": "file:///Users/admin/.pub-cache/hosted/pub.dev/sign_in_with_apple_web-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///opt/homebrew/Caskroom/flutter/3.13.2/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -716,7 +734,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-10-06T14:00:09.223974Z",
+  "generated": "2023-10-23T21:01:49.815981Z",
   "generator": "pub",
   "generatorVersion": "3.1.0"
 }

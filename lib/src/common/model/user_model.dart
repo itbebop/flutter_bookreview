@@ -15,6 +15,9 @@ class UserModel extends Equatable {
     this.email,
   });
 
+  // UserRepository에서 사용
+  factory UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
+
   @override
   List<Object?> get props => [
         uid,

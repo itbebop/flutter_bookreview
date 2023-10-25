@@ -1,11 +1,16 @@
 import 'package:bookreview/firebase_options.dart';
 import 'package:bookreview/src/app.dart';
 import 'package:bookreview/src/common/cubit/app_data_load_cubit.dart';
+import 'package:bookreview/src/common/cubit/authentication_cubit.dart';
 import 'package:bookreview/src/common/interceptor/custom_interceptor.dart';
+import 'package:bookreview/src/common/repository/authentication_repository.dart';
 import 'package:bookreview/src/common/repository/naver_api_repository.dart';
+import 'package:bookreview/src/common/repository/user_repository.dart';
 import 'package:bookreview/src/init/cubit/init_cubit.dart';
 import 'package:bookreview/src/splash/cubit/splash_cubit.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,11 +39,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //return const App();
     // 빈값을 MultiRepositoryProvider로 리턴하면 안됨
+    var db = FirebaseFirestore.instance;
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(
-          create: (context) => NaverBookRepository(dio),
-        )
+          create: (context) => NaverBookRepository(dio), // 화면에서 사용할 수 있도록 등록
+        ),
+        RepositoryProvider(
+          create: (context) => AuthenticationRepository(FirebaseAuth.instance), // 화면에서 사용할 수 있도록 등록
+        ),
+        RepositoryProvider(
+          create: (context) => UserRepository(db), // db로 할당받아서 넣은 이유는 위 FirebaseAuth.instance는 여기서만 쓰고, db는 다른 데서도 쓸 수 있으므로
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -52,6 +64,12 @@ class MyApp extends StatelessWidget {
           ),
           // SplashCubit은 App쪽에 등록해도 되는데 이앱에서는 main에 해줌
           BlocProvider(create: (context) => SplashCubit()),
+          BlocProvider(
+            create: (context) => AuthenticationCubit(
+              context.read<AuthenticationRepository>(), // 화면에서 사용할 수 있도록 등록
+              context.read<UserRepository>(), // 화면에서 사용할 수 있도록 등록
+            ),
+          )
         ],
         child: const App(),
       ),

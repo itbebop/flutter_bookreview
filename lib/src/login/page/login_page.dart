@@ -1,4 +1,5 @@
 import 'package:bookreview/src/common/components/app_font.dart';
+import 'package:bookreview/src/common/cubit/authentication_cubit.dart';
 import 'package:bookreview/src/splash/cubit/splash_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +10,7 @@ class LoginPage extends StatelessWidget {
   // BuildContext를 넘겨주는 이유는 버튼 클릭시 이벤트를 Cubit으로 연결해주기 위해서 전달해주는 것
   Widget _googleLoginBtn(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: context.read<AuthenticationCubit>().googleLogin,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 50),
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
@@ -36,7 +37,7 @@ class LoginPage extends StatelessWidget {
 
   Widget _appleLoginBtn(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: context.read<AuthenticationCubit>().appleLogin,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 50),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),

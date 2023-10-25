@@ -22,7 +22,7 @@ class _AppState extends State<App> {
 
     // route
     router = GoRouter(
-      initialLocation: '/login',
+      initialLocation: '/',
       routes: [
         GoRoute(
           path: '/',
